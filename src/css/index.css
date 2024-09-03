@@ -5,6 +5,8 @@
     --color2: gray;
     --color3: silver;
     --font1: Arial, Helvetica;
+    --spaceIn: 10px;
+    --spaceOut: 30px;
 }
 * {
     margin: 0;
@@ -17,23 +19,47 @@ select {
     width: 200px;
     height: 25px;
     background-color: var(--color3);
-    margin: 10px;
+    margin: var(--spaceIn);
 }
 input {
-    width: 80%;
+    width: 95%;
     height: 25px;
-    margin: 10px;
+    margin: var(--spaceIn);
 }
-p, h3, h5 {
+p, h3 {
     padding: 5px; 
     line-height: 1.4rem;   
+    font-size: 10pt;
 }
 header, main, footer {
     width: 100%;
 }
+a {
+    text-decoration: none;
+    color: var(--color1);
+    align-items: center;
+}
+
 footer {
     background-color: var(--color2);
     text-align: center;
+}
+
+.button {
+    width: 100px;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+}
+.button a div p {
+    font-size: 9pt;
+
+}
+.logo {
+    width: 15%; /* em relação ao elemento-pai */
+}
+.logo img {
+    width: 100%;
 }
 .banner {
     width: 100%;
@@ -45,12 +71,6 @@ footer {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
-}
-.logo {
-    width: 15%; /* em relação ao elemento-pai */
-}
-.logo img {
-    width: 100%;
 }
 
 nav {
@@ -64,59 +84,49 @@ nav ul, .topCards, .eventCards {
     flex-direction: row;
     justify-content: space-evenly;
     list-style: none;
-    gap:10px;
-}
-.eventCards {
-    padding: 50px;
-}
-.galeryImages {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.galeryImage {
-    width: 200px;
-    height: 200px;
+    gap:25px;
 }
 .navItem {
-    min-width: 100px;
+    color: var(--color2);
+    width: 300px;
+    font-size: 9pt;
+    text-align: center;
 }
+
 .topCard {
     text-align: center;
+    align-items: center;
 }
 .topCard img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
 }
-.events {
+
+.events, .newsletter {
+    color: var(--color2);
     background-color: var(--color3);
 }
-.eventCard{
+.eventsHeader h3 {
+    color: var(--color1);
+}
+.eventCardContent div {
+    color: var(--color2);
+}
+.eventCards {
+    padding: var(--spaceIn) var(--spaceIn) var(--spaceOut);
+}
+.eventCard {
     display: flex;
     flex-direction: row;
-}
-.eventsHeader, .galery, .newsletter {
-    padding-top: 40px;
-    text-align: center;
-}
-.topCards, .newsletter {
-    padding: 50px;
-}
-.galery {
-    padding: 50px 0 50px 0;
 }
 .eventCardDate {
     width: 40px;
     height: 50px;
     text-align: center;
     padding: 20px 10px 0 10px;
-    color: var(--color2);
     background-color: var(--color1);
 }
-
 .eventMonth {
     padding-bottom: 0;
     font-size: 10pt;
@@ -125,17 +135,60 @@ nav ul, .topCards, .eventCards {
     padding-top: 0;
     font-size: 15pt;
 }
-a {
-    text-decoration: none;
-    color: var(--color1)
-}
-.topCardButton, .newsButton {
-    width: 150px;
-    border: 1px solid black;
-    border-radius: 10px;
-    margin: 30px;
-    text-align: center;
-}
 .eventCardContent {
     align-items: center;
+}
+
+.galeryImages {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: var(--spaceIn);
+    padding-bottom: var(--spaceOut);
+}
+.galeryImage {
+    width: 200px;
+    height: 200px;
+    border: .5pt solid var(--color1)
+}
+
+.eventsHeader, .galery, .newsletter {
+    padding-top: var(--spaceOut);
+    text-align: center;
+}
+.topCards, .newsletter {
+    padding: var(--spaceOut);
+}
+.cadastrar {
+    width: 100px;
+    background-color: var(--color1);
+}
+.cadastrar a {
+    color: var(--color0);
+    text-align: center;
+}
+
+.redes ul {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: center;
+    gap:40px;
+    align-items: center;
+}
+.redes ul a, .copyright {
+    color: var(--color0);
+    font-size: 10pt;
+    
+}
+.copyright {
+    padding: 15px;
+}
+.redes ul img {
+    width: 32px;
+    height: 32px;
+    line-height: 32pt;
 }
