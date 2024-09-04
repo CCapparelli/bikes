@@ -1,4 +1,3 @@
-
 :root {
     --color0: white;
     --color1: black;
@@ -7,12 +6,18 @@
     --font1: Arial, Helvetica;
     --spaceIn: 10px;
     --spaceOut: 30px;
+    --textSize: 10pt; 
+    --btnTextSize: 8pt; 
 }
 * {
     margin: 0;
     padding: 0;
 }
+
+/* elements (tags) */
+
 body {
+    background-color: var(--color0);
     font-family: var(--font1);
 }
 select {
@@ -24,12 +29,15 @@ select {
 input {
     width: 95%;
     height: 25px;
-    margin: var(--spaceIn);
+    margin-bottom: 20px;
 }
 p, h3 {
-    padding: 5px; 
+    color: var(--color1);
     line-height: 1.4rem;   
     font-size: 10pt;
+}
+h3 {
+    padding-top: var(--spaceIn); 
 }
 header, main, footer {
     width: 100%;
@@ -45,15 +53,13 @@ footer {
     text-align: center;
 }
 
+/* classes */
+
 .button {
-    width: 100px;
+    padding: var(--spaceIn) var(--spaceOut);
+    font-size: var(--btnTextSize);
     border: 1px solid black;
     border-radius: 10px;
-    text-align: center;
-}
-.button a div p {
-    font-size: 9pt;
-
 }
 .logo {
     width: 15%; /* em relação ao elemento-pai */
@@ -73,45 +79,63 @@ footer {
     background-position: top;
 }
 
+/* header */ 
 nav {
     background-color: var(--color1);
     color: var(--color0);
     height: auto;
     line-height: 50px;
 }
-nav ul, .topCards, .eventCards {
+nav ul {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     list-style: none;
-    gap:25px;
 }
 .navItem {
     color: var(--color2);
-    width: 300px;
-    font-size: 9pt;
+    font-size: var(--btnTextSize);
     text-align: center;
 }
 
-.topCard {
-    text-align: center;
-    align-items: center;
+/* topics */
+
+.topics, .eventCards {
+    width: 100%;
+    padding: var(--spaceIn) 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
-.topCard img {
+.topic {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spaceIn);
+}
+.topic img {
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+    border-radius: 100%;
+    
 }
+
+/* events (agenda) */
 
 .events, .newsletter {
     color: var(--color2);
     background-color: var(--color3);
 }
-.eventsHeader h3 {
-    color: var(--color1);
-}
-.eventCardContent div {
+.eventContent {
+    margin: 0 5px;
     color: var(--color2);
+}
+.eventContent h3 {
+    padding-top: 0;
+}
+.eventContent p {
+    padding-bottom: var(--spaceIn);
 }
 .eventCards {
     padding: var(--spaceIn) var(--spaceIn) var(--spaceOut);
@@ -120,56 +144,69 @@ nav ul, .topCards, .eventCards {
     display: flex;
     flex-direction: row;
 }
-.eventCardDate {
+.eventDate {
     width: 40px;
-    height: 50px;
+    height: 40px;
+    padding: 5px;
     text-align: center;
-    padding: 20px 10px 0 10px;
     background-color: var(--color1);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .eventMonth {
-    padding-bottom: 0;
-    font-size: 10pt;
+    font-size: 8pt;
 }
 .eventDay {
-    padding-top: 0;
-    font-size: 15pt;
+    font-size: 14pt;
 }
 .eventCardContent {
     align-items: center;
 }
 
+/* galery */ 
+
+.topics, .galery, .newsletter, .eventsHeader {
+    margin-top: var(--spaceOut);
+    text-align: center;
+}
 .galeryImages {
+    padding: 0 var(--spaceIn);
     display: flex;
-    flex-direction: row;
-    list-style: none;
     flex-wrap: wrap;
-    justify-content: center;
+    gap: 5px;
+}
+.galeryImage, .galeryImage img {
+    width: 200px;
+    height: 200px;
+    border: .5px solid var(--color1);
+    border-radius: 10px;
+    background-image: url(../img/ImagensGeral/Hotel_Icon_Near_Bike_Route.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* newsletter */
+.newsletter {
     padding-top: var(--spaceIn);
     padding-bottom: var(--spaceOut);
 }
-.galeryImage {
-    width: 200px;
-    height: 200px;
-    border: .5pt solid var(--color1)
-}
-
-.eventsHeader, .galery, .newsletter {
+.newsletter h3 {
     padding-top: var(--spaceOut);
-    text-align: center;
 }
-.topCards, .newsletter {
-    padding: var(--spaceOut);
+.newsletter p {
+    padding-bottom: var(--spaceIn);
 }
-.cadastrar {
-    width: 100px;
+.btnNewsletter {
+    color: var(--color3);
     background-color: var(--color1);
 }
-.cadastrar a {
-    color: var(--color0);
-    text-align: center;
-}
 
+/* footer */
 .redes ul {
     padding: 10px;
     display: flex;
@@ -179,16 +216,22 @@ nav ul, .topCards, .eventCards {
     gap:40px;
     align-items: center;
 }
-.redes ul a, .copyright {
-    color: var(--color0);
+.redes ul li {
+    color: var(--color3);
     font-size: 10pt;
-    
+    display: flex;
+    align-items: center;
+    gap: var(--spaceIn);
 }
 .copyright {
-    padding: 15px;
+    color: var(--color4);
+    font-size: var(--btnTextSize);
+    padding: var(--spaceIn);
 }
 .redes ul img {
     width: 32px;
     height: 32px;
     line-height: 32pt;
 }
+
+/**/
